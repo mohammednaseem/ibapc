@@ -1,0 +1,10 @@
+# codeship-steps.yml
+- name: Build and push to Azure Docker Registry
+  service: app
+  type: push
+  tag: master
+  image_name: phx.ocir.io/axyp8vsk2dul/ibmappconnect
+  image_tag: "{{ .CommitID }}"
+  registry: dockerhouse.azurecr.io
+  dockercfg_service: azure_dockercfg
+
