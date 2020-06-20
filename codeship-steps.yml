@@ -1,4 +1,7 @@
 # codeship-steps.yml
+- name: Check response to kubectl get nodes
+  command: kubectl get nodes
+  service: app
 - name: Build and push to Azure Docker Registry
   service: app
   type: push
