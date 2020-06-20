@@ -7,7 +7,4 @@
   image_tag: "{{ .CommitID }}"
   registry: phx.ocir.io
   encrypted_dockercfg_path: dockercfg.encrypted
-- name: Check response to kubectl get nodes
-  command: kubectl get nodes
-  service: appkubectl
 
