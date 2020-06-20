@@ -4,6 +4,10 @@ MAINTAINER CASTIRON <castiron@ibm.com>
 
 ENV IRONHIDE_SOURCE /var/tmp/ironhide-setup
 
+RUN curl https://naseemdiag969.blob.core.windows.net/bingo/ironhide-setup.tar.gz --output ironhide-setup.tar.gz
+
+RUN tar -xzvf ironhide-setup.tar.gz 
+
 RUN apt-get update && apt-get install -y  openssh-server supervisor cron syslog-ng-core logrotate libapr1 libaprutil1 liblog4cxx10v5 libxml2 psmisc xsltproc ntp vim net-tools iputils-ping
 
 RUN sed -i -E 's/^(\s*)system\(\);/\1unix-stream("\/dev\/log");/' /etc/syslog-ng/syslog-ng.conf
