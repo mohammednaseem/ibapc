@@ -1,10 +1,10 @@
 # codeship-steps.yml
+
 - name: Build and push to Oracle Docker Registry
   service: app
-  type: push
   tag: master
   image_name: phx.ocir.io/axyp8vsk2dul/ibmappconnect
   image_tag: "{{ .CommitID }}"
   registry: phx.ocir.io
   encrypted_dockercfg_path: dockercfg.encrypted
-
+  type: push
