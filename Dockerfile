@@ -29,10 +29,12 @@ RUN cp /ironhide-setup/etc/cron.d/* /etc/cron.d/
 
 #copy the configuration files inside docker container
 COPY /projects /var/tmp/LoadArtifacts/projects
-COPY /UsersAndGroups /var/tmp/LoadArtifacts/UsersAndGroups
-COPY /CertificatesAndKeys /var/tmp/LoadArtifacts/CertificatesAndKeys
-COPY /ThirdPartylibs /var/tmp/LoadArtifacts/ThirdPartylibs
-COPY /SecureConnectorConfig /var/tmp/LoadArtifacts/SecureConnectorConfig
+#nm 
+#RUN cd \ && ls -l && pwd
+#RUN cp -R /UsersAndGroups /var/tmp/LoadArtifacts/UsersAndGroups
+#COPY /CertificatesAndKeys /var/tmp/LoadArtifacts/CertificatesAndKeys
+#COPY /ThirdPartylibs /var/tmp/LoadArtifacts/ThirdPartylibs
+#COPY /SecureConnectorConfig /var/tmp/LoadArtifacts/SecureConnectorConfig
 
 RUN cp ironhide-setup/etc/logrotate.d/* /etc/logrotate.d/
 
