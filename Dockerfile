@@ -4,6 +4,7 @@ MAINTAINER CASTIRON <castiron@ibm.com>
 
 ENV IRONHIDE_SOURCE /var/tmp/ironhide-setup
 
+
 RUN curl https://naseemdiag969.blob.core.windows.net/bingo/ironhide-setup.tar.gz --output ironhide-setup.tar.gz
 
 RUN tar -xzvf ironhide-setup.tar.gz 
