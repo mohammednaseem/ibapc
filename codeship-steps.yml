@@ -1,5 +1,4 @@
 # codeship-steps.yml
-
 - name: Build and push to Oracle Docker Registry
   service: app
   tag: master
@@ -8,3 +7,19 @@
   registry: phx.ocir.io
   encrypted_dockercfg_path: dockercfg.encrypted
   type: push
+- name: Check response to kubectl get nodes
+  command: kubectl get nodes
+  service: appkubectl
+- name: Check OCI Version
+  command: oci -v
+  service: appkubectl  
+- name: Deploy the IBM App Connect Image and Sidecare to OKE
+  command: kubectl apply -f /config/.kube/ibmappconnect.yaml
+  service: appkubectl
+# - name: Deploy the .NET app  to Oracle Kubernetes Engine
+##   command: kubectl apply -f /config/.kube/InitApp.yaml
+#    service: appkubectl
+- name: Print out the environment varibales
+  service: appkubectl
+  command: printenv
+

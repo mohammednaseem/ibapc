@@ -6,3 +6,11 @@ oracle_dockercfg:
   image: codeship/myservice-dockercfg-generator
   encrypted_env_file:
     - creds.encrypted
+appkubectl:
+  build:
+    image: phx.ocir.io/oci_kubectl:0.0.4
+    dockerfile_path: DockerfileOciKube
+    encrypted_args_file: config_encrypted
+    args:
+      CommitID: "{{.CommitID }}"
+
