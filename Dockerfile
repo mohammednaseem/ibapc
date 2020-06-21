@@ -2,17 +2,19 @@ FROM ubuntu:16.04
 
 MAINTAINER CASTIRON <castiron@ibm.com>
 
+ARG ibm_file
+
 ENV IRONHIDE_SOURCE /var/tmp/ironhide-setup
 
 RUN apt-get update && apt-get install -y  openssh-server supervisor cron syslog-ng-core logrotate libapr1 libaprutil1 liblog4cxx10v5 libxml2 psmisc xsltproc ntp vim net-tools iputils-ping curl 
 
-RUN curl -LO  https://naseemdiag969.blob.core.windows.net/bingo/ironhide-setup.tar.gz --output ironhide-setup.tar.gz
+RUN curl -LO  $ibm_file --output ironhide-setup.tar.gz && tar -xzvf ironhide-setup.tar.gz
 
-RUN tar -xzvf ironhide-setup.tar.gz
+#RUN tar -xzvf ironhide-setup.tar.gz
 
-RUN ls -l &&  cd ironhide-setup &&  ls -l && cat supervisord.conf && cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf  
+#RUN ls -l &&  cd ironhide-setup &&  ls -l && cat supervisord.conf && cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf  
 
-RUN sed -i -E 's/^(\s*)system\(\);/\1unix-stream("\/dev\/log");/' /etc/syslog-ng/syslog-ng.conf 
+RUN ls -l &&  cd ironhide-setup &&  ls -l && cat supervisord.conf && cp supervisord.conf /etc/supervisor/conf.d/supervisord.conf  &&  sed -i -E 's/^(\s*)system\(\);/\1unix-stream("\/dev\/log");/' /etc/syslog-ng/syslog-ng.conf 
 
 RUN sed -i 's/^su root syslog/su root adm/' /etc/logrotate.conf
 

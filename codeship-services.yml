@@ -5,7 +5,7 @@ app:
 oracle_dockercfg:
   image: codeship/myservice-dockercfg-generator
   encrypted_env_file:
-    - creds.encrypted
+    - config_encrypted
 appkubectl:
   build:
     image: phx.ocir.io/oci_kubectl:0.0.4
