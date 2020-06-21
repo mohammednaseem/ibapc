@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ibmappconnect-app
-        image: phx.ocir.io/axyp8vsk2dul/ibmappconnect:7.5.3.0
+        image: phx.ocir.io/axyp8vsk2dul/ibmappconnect:##tag##
         ports:
         - containerPort: 80
         - containerPort: 443
