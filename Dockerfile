@@ -6,7 +6,7 @@ ARG ibm_file
 
 ENV IRONHIDE_SOURCE /var/tmp/ironhide-setup
 
-RUN apt-get update && apt-get install -y  openssh-server supervisor cron syslog-ng-core logrotate libapr1 libaprutil1 liblog4cxx10v5 libxml2 psmisc xsltproc ntp vim net-tools iputils-ping curl 
+RUN echo "bing" && echo $ibm_file &&  apt-get update && apt-get install -y  openssh-server supervisor cron syslog-ng-core logrotate libapr1 libaprutil1 liblog4cxx10v5 libxml2 psmisc xsltproc ntp vim net-tools iputils-ping curl 
 
 RUN curl -LO  $ibm_file --output ironhide-setup.tar.gz && tar -xzvf ironhide-setup.tar.gz
 

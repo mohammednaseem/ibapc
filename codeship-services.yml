@@ -2,10 +2,9 @@ app:
   build:
     image: phx.ocir.io/axyp8vsk2dul/ibmappconnect
     dockerfile_path: Dockerfile
+    encrypted_args_file: config_encrypted
 oracle_dockercfg:
   image: codeship/myservice-dockercfg-generator
-  encrypted_env_file:
-    - config_encrypted
 appkubectl:
   build:
     image: phx.ocir.io/oci_kubectl:0.0.4
