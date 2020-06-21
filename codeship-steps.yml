@@ -13,12 +13,9 @@
 - name: Check OCI Version
   command: oci -v
   service: appkubectl  
-- name: Deploy the IBM App Connect Image and Sidecare to OKE
+- name: Deploy the IBM App Connect Image with flows and configs
   command: kubectl apply -f /config/.kube/ibmappconnect.yaml
   service: appkubectl
-# - name: Deploy the .NET app  to Oracle Kubernetes Engine
-##   command: kubectl apply -f /config/.kube/InitApp.yaml
-#    service: appkubectl
 - name: Print out the environment varibales
   service: appkubectl
   command: printenv

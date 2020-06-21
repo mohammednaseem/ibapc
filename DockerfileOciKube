@@ -68,7 +68,7 @@ RUN mv ./kubectl /usr/local/bin && \
     cp ibmappconnect.yaml $HOME/.kube/ibmappconnect.yaml &&  sed -i 's/##tag##/'$CommitID'/1' $HOME/.kube/ibmappconnect.yaml && \
     \
     # connecting oce
-    oci ce cluster create-kubeconfig --cluster-id $clusterid --file $HOME/.kube/config --region #region --token-version 2.0.0  && \
+    oci ce cluster create-kubeconfig --cluster-id $clusterid --file $HOME/.kube/config --region $region --token-version 2.0.0  && \
     \
     # path setting
     export KUBECONFIG=$HOME/.kube/config
